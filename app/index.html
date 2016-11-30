@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="sportsStore">
+<head>
+    <title>SportsStore</title>
+    <script src="lib/angular/angular.js"></script>
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <script src="scripts/app.module.js"></script>
+    <script src="scripts/sportstore.controller.js"></script>
+</head>
+
+<body ng-controller="sportsStoreCtrl as vm">
+<div class="navbar navbar-inverse">
+    <a class="navbar-brand" href="#">SPORTS STORE</a>
+</div>
+<div class="panel panel-default row">
+    <div class="col-xs-3">
+        Categories go here
+    </div>
+    <div class="col-xs-8">
+        <div class="well" ng-repeat="item in vm.data.products">
+            <h3>
+                <strong>{{item.name}}</strong>
+                <span class="pull-right label label-primary">{{item.price | currency}}</span>
+            </h3>
+            <span class="lead">{{item.description}}</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
