@@ -6,26 +6,28 @@
     <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link href="lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
     <script src="scripts/app.module.js"></script>
-    <script src="scripts/sportstore.controller.js"></script>
+    <script src="scripts/controllers/sportStore.controller.js"></script>
+    <script src="scripts/controllers/productList.controller.js"></script>
+    <script src="scripts/filters/category.filter.js"></script>
+    <script src="scripts/filters/range.filter.js"></script>
+    <script src="scripts/filters/pageCount.filter.js"></script>
+    <script src="scripts/services/cart.service.js"></script>
+    <script src="scripts/directives/cartSummary.directive.js"></script>
 </head>
 
 <body ng-controller="sportsStoreCtrl as vm">
 <div class="navbar navbar-inverse">
     <a class="navbar-brand" href="#">SPORTS STORE</a>
+    <cart-summary></cart-summary>
 </div>
-<div class="panel panel-default row">
-    <div class="col-xs-3">
-        Categories go here
-    </div>
-    <div class="col-xs-8">
-        <div class="well" ng-repeat="item in vm.data.products">
-            <h3>
-                <strong>{{item.name}}</strong>
-                <span class="pull-right label label-primary">{{item.price | currency}}</span>
-            </h3>
-            <span class="lead">{{item.description}}</span>
-        </div>
-    </div>
+
+
+<div class="alert alert-danger" ng-show="vm.data.error">
+    Error ({{vm.data.error.status}}). The product data was not loaded.
+    <a href="./index.html" class="alert-link">Click here to try again</a>
 </div>
+
+<ng-include src="'scripts/views/productList.html'"></ng-include>
+
 </body>
 </html>
