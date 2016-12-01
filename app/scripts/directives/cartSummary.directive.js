@@ -3,7 +3,7 @@ var app = angular.module("sportsStore");
 app.directive("cartSummary", function (cart) {
     return {
         restrict: "E",
-        templateUrl: "scripts/components/cart/cartSummary.html",
+        templateUrl: "templates/cartSummary.html",
         controller: function ($scope) {
             var cartData = cart.getProducts();
             $scope.total = function () {

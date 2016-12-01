@@ -7,19 +7,19 @@
 
     app.config(function ($routeProvider) {
         $routeProvider.when("/checkout", {
-            templateUrl: "scripts/views/checkoutSummary.html"
+            templateUrl: "views/checkoutSummary.html"
         });
         $routeProvider.when("/products", {
-            templateUrl: "scripts/views/productList.html"
+            templateUrl: "views/productList.html"
         });
         $routeProvider.when("/complete", {
-            templateUrl: "scripts/views/thankYou.html"
+            templateUrl: "views/thankYou.html"
         });
         $routeProvider.when("/placeorder", {
-            templateUrl: "scripts/views/placeOrder.html"
+            templateUrl: "views/placeOrder.html"
         });
         $routeProvider.otherwise({
-            templateUrl: "scripts/views/productList.html"
+            templateUrl: "views/productList.html"
         });
     });
 }());

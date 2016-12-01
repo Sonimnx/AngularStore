@@ -16,3 +16,4 @@ node_modules
 
 #Librarys
 /app/lib/*
+lib/*
