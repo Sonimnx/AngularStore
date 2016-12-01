@@ -16,6 +16,10 @@
                 <strong>{{item.name}}</strong>
                 <span class="pull-right label label-primary">{{item.price | currency}}</span>
             </h3>
+            <button ng-click="vmPl.addProductToCart(item)"
+                    class="btn btn-success pull-right">
+                Add to cart
+            </button>
             <span class="lead">{{item.description}}</span>
         </div>
 

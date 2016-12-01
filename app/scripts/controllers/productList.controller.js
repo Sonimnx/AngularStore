@@ -1,6 +1,6 @@
 var app = angular.module("sportsStore");
 
-var productList = function ($filter, productListActiveClass, productListPageCount) {
+var productList = function ($filter, productListActiveClass, productListPageCount, cart) {
     var vm = this;
     var selectedCategory = null;
     vm.selectedPage = 1;
@@ -26,8 +26,11 @@ var productList = function ($filter, productListActiveClass, productListPageCoun
 
     vm.getPageClass = function (page) {
         return vm.selectedPage == page ? productListActiveClass : "";
-    }
+    };
 
+    vm.addProductToCart = function (product) {
+        cart.addProduct(product.id, product.name, product.price);
+    }
 };
 
 app.controller("productListCtrl", productList);
