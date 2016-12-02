@@ -1,5 +1,5 @@
-<h2>Your cart</h2>
 <div ng-controller="cartSummaryController as vm">
+    <h2 ng-hide="vm.cartData.length === 0">Your cart</h2>
     <div class="alert alert-warning" ng-show="vm.cartData.length === 0">
         There are no products in your shopping cart.
         <a href="#/products" class="alert-link">Click here to return to the catalogue</a>
