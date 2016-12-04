@@ -44,6 +44,7 @@
             <td><input ng-model="vm.editedProduct.price" required/></td>
             <td>
                 <button ng-hide="vm.editedProduct.id"
+                        ng-disabled="vm.editedProduct.name==null ||vm.editedProduct.description==null||vm.editedProduct.price==null||vm.editedProduct.category==null"
                         ng-click="vm.createProduct(vm.editedProduct)"
                         class="btn btn-xs btn-primary">
                     Create

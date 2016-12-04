@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-server-livereload": "^1.9.2"
   }
 }
