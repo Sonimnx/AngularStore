@@ -1,5 +1,3 @@
-'use strict';
-
 var app = angular.module("sportsStore");
 var unique = function () {
     return function (data, propertyName) {
@@ -17,7 +15,7 @@ var unique = function () {
         } else {
             return data;
         }
-    }
+    };
 };
 
 app.filter("getCategories", unique);

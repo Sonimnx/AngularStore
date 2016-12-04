@@ -12,7 +12,7 @@ var pageCount = function () {
         } else {
             return data;
         }
-    }
+    };
 };
 
 app.filter("pageCount", pageCount);

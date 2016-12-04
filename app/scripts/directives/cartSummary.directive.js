@@ -19,7 +19,7 @@ app.directive("cartSummary", function (cart) {
                     total += cartData[i].count;
                 }
                 return total;
-            }
+            };
         }
     };
 });

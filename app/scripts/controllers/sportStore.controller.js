@@ -26,7 +26,7 @@ var sportsStoreCtrl = function ($http, $location, dataUrl, orderUrl, cart) {
             }).finally(function () {
             $location.path("/complete");
         });
-    }
+    };
 };
 
 app.controller("sportsStoreCtrl", sportsStoreCtrl);

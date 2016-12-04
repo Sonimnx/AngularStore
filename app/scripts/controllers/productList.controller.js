@@ -12,7 +12,7 @@ var productList = function ($filter, productListActiveClass, productListPageCoun
     };
 
     vm.categoryFilterFn = function (product) {
-        return selectedCategory == null ||
+        return selectedCategory === null ||
             product.category == selectedCategory;
     };
 
@@ -30,7 +30,7 @@ var productList = function ($filter, productListActiveClass, productListPageCoun
 
     vm.addProductToCart = function (product) {
         cart.addProduct(product.id, product.name, product.price);
-    }
+    };
 };
 
 app.controller("productListCtrl", productList);

@@ -29,7 +29,7 @@ var cartService = function () {
         getProducts: function () {
             return cartData;
         }
-    }
+    };
 };
 
 app.factory("cart",cartService);
