@@ -3,6 +3,7 @@
     <div class="col-sm-3">
         <a ng-click="vmPl.selectCategory()"
            class="btn btn-block btn-default btn-lg">Home</a>
+
         <a ng-repeat="item in vm.data.products | orderBy:'category' | getCategories:'category'"
            ng-click="vmPl.selectCategory(item)" class=" btn btn-block btn-default btn-lg" ng-class="vmPl.getCategoryClass(item)">
             {{item}}

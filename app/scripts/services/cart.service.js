@@ -1,35 +1,34 @@
-var app = angular.module("sportsStore");
-
-var cartService = function () {
-    var cartData = [];
-    return {
-        addProduct: function (id, name, price) {
-            var addedToExistingItem = false;
-            for (var i = 0; i < cartData.length; i++) {
-                if (cartData[i].id == id) {
-                    cartData[i].count++;
-                    addedToExistingItem = true;
-                    break;
+(function (app) {
+    var cartService = function () {
+        var cartData = [];
+        return {
+            addProduct: function (id, name, price) {
+                var addedToExistingItem = false;
+                for (var i = 0; i < cartData.length; i++) {
+                    if (cartData[i].id == id) {
+                        cartData[i].count++;
+                        addedToExistingItem = true;
+                        break;
+                    }
                 }
-            }
-            if (!addedToExistingItem) {
-                cartData.push({
-                    count: 1, id: id, price: price, name: name
-                });
-            }
-        },
-        removeProduct: function (id) {
-            for (var i = 0; i < cartData.length; i++) {
-                if (cartData[i].id == id) {
-                    cartData.splice(i, 1);
-                    break;
+                if (!addedToExistingItem) {
+                    cartData.push({
+                        count: 1, id: id, price: price, name: name
+                    });
                 }
+            },
+            removeProduct: function (id) {
+                for (var i = 0; i < cartData.length; i++) {
+                    if (cartData[i].id == id) {
+                        cartData.splice(i, 1);
+                        break;
+                    }
+                }
+            },
+            getProducts: function () {
+                return cartData;
             }
-        },
-        getProducts: function () {
-            return cartData;
-        }
+        };
     };
-};
-
-app.factory("cart",cartService);
+    app.factory("cart", cartService);
+}(angular.module("sportsStore")));

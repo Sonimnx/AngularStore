@@ -1,32 +1,33 @@
-var app = angular.module("sportsStore");
+(function (app) {
 
-var sportsStoreCtrl = function ($http, $location, dataUrl, orderUrl, cart) {
-    var vm = this;
-    vm.data = {};
+    var sportsStoreCtrl = function ($http, $location, dataUrl, orderUrl, cart) {
+        var vm = this;
+        vm.data = {};
 
-    $http.get(dataUrl)
-        .success(function (data) {
-            vm.data.products = data;
-        })
-        .error(function (error) {
-            vm.data.error = error;
-        });
-
-    vm.sendOrder = function (shippingDetails) {
-        console.log("Send order function");
-        var order = angular.copy(shippingDetails);
-        order.products = cart.getProducts();
-        $http.post(orderUrl, order)
+        $http.get(dataUrl)
             .success(function (data) {
-                vm.data.orderId = data.id;
-                cart.getProducts().length = 0;
+                vm.data.products = data;
             })
             .error(function (error) {
-                vm.data.orderError = error;
-            }).finally(function () {
-            $location.path("/complete");
-        });
-    };
-};
+                vm.data.error = error;
+            });
 
-app.controller("sportsStoreCtrl", sportsStoreCtrl);
+        vm.sendOrder = function (shippingDetails) {
+            console.log("Send order function");
+            var order = angular.copy(shippingDetails);
+            order.products = cart.getProducts();
+            $http.post(orderUrl, order)
+                .success(function (data) {
+                    vm.data.orderId = data.id;
+                    cart.getProducts().length = 0;
+                })
+                .error(function (error) {
+                    vm.data.orderError = error;
+                }).finally(function () {
+                $location.path("/complete");
+            });
+        };
+    };
+    app.controller("sportsStoreCtrl", sportsStoreCtrl);
+}(angular.module("sportsStore")));
+

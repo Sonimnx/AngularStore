@@ -1,5 +1,4 @@
-var app = angular.module("sportsStore");
-
+(function (app) {
 var range = function ($filter) {
     return function (data, page, size) {
         if (angular.isArray(data) && angular.isNumber(page) && angular.isNumber(size)) {
@@ -17,3 +16,5 @@ var range = function ($filter) {
 };
 
 app.filter("range", range);
+
+}(angular.module("sportsStore")));
